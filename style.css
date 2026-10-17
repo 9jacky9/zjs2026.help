@@ -1,0 +1,1250 @@
+/* ==========================================================================
+   zjs2026.help - 掌中世界-帮助中心 样式系统
+   设计风格：全息知识基座 / 技术支持终端智核风 (Holographic Knowledge Nexus)
+   主色调：虚空靛夜黑 (#090d16) · 极光紫电蓝 (#6366f1) · 激光青 (#06b6d4) · 曜日金 (#eab308)
+   ========================================================================== */
+
+:root {
+  --nexus-bg-deep: #07090e;
+  --nexus-bg-surface: #0e1320;
+  --nexus-bg-card: rgba(18, 24, 40, 0.82);
+  --nexus-bg-card-hover: rgba(28, 38, 62, 0.94);
+  --nexus-border-subtle: rgba(99, 102, 241, 0.18);
+  --nexus-border-bright: rgba(99, 102, 241, 0.5);
+  --nexus-border-cyan: rgba(6, 182, 212, 0.45);
+  --nexus-primary: #6366f1;
+  --nexus-primary-glow: rgba(99, 102, 241, 0.42);
+  --nexus-accent-cyan: #06b6d4;
+  --nexus-accent-cyan-light: #22d3ee;
+  --nexus-accent-gold: #eab308;
+  --nexus-text-primary: #f8fafc;
+  --nexus-text-secondary: #94a3b8;
+  --nexus-text-muted: #64748b;
+  --nexus-radius-sm: 8px;
+  --nexus-radius-md: 14px;
+  --nexus-radius-lg: 20px;
+  --nexus-radius-full: 9999px;
+  --nexus-shadow-card: 0 12px 30px -10px rgba(0, 0, 0, 0.6), 0 0 20px -4px rgba(99, 102, 241, 0.15);
+  --nexus-shadow-glow: 0 0 25px rgba(99, 102, 241, 0.35);
+  --nexus-shadow-cyan: 0 0 25px rgba(6, 182, 212, 0.3);
+  --nexus-transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  --nexus-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--nexus-font);
+  background-color: var(--nexus-bg-deep);
+  color: var(--nexus-text-primary);
+  line-height: 1.66;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #090d16 55%, #05070b 100%);
+  background-attachment: fixed;
+}
+
+/* 统一超链接规范：强调整体高亮，访问前后保持一致，绝不显示默认蓝/紫 */
+a {
+  color: var(--nexus-accent-cyan);
+  text-decoration: none;
+  transition: var(--nexus-transition);
+}
+
+a:visited {
+  color: var(--nexus-accent-cyan);
+}
+
+a:hover, a:focus {
+  color: var(--nexus-accent-cyan-light);
+  text-decoration: none;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--nexus-accent-cyan);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+img, svg {
+  vertical-align: middle;
+}
+
+/* 容器与版心 */
+.nexus-container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* 顶部公告条 */
+.nexus-topbar {
+  background: linear-gradient(90deg, rgba(99, 102, 241, 0.22), rgba(6, 182, 212, 0.2), rgba(99, 102, 241, 0.22));
+  border-bottom: 1px solid var(--nexus-border-subtle);
+  padding: 8px 16px;
+  font-size: 13px;
+  text-align: center;
+  color: var(--nexus-text-secondary);
+}
+.nexus-topbar-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.support-beacon {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--nexus-accent-cyan);
+  font-weight: 600;
+}
+.beacon-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--nexus-accent-cyan);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--nexus-accent-cyan);
+  animation: beaconPulse 2s infinite;
+}
+@keyframes beaconPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.85); }
+}
+
+/* 吸顶导航栏 */
+.nexus-nav {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: rgba(9, 13, 22, 0.9);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--nexus-border-subtle);
+  transition: var(--nexus-transition);
+}
+
+.nexus-nav-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.nexus-logo-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--nexus-text-primary);
+}
+.nexus-logo-link:hover {
+  color: var(--nexus-text-primary);
+}
+
+.nexus-logo-svg {
+  width: 44px;
+  height: 44px;
+  filter: drop-shadow(0 0 8px var(--nexus-primary-glow));
+}
+
+.nexus-logo-text {
+  display: flex;
+  flex-direction: column;
+}
+.nexus-logo-title {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  background: linear-gradient(135deg, #ffffff 40%, var(--nexus-accent-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.nexus-logo-sub {
+  font-size: 11px;
+  color: var(--nexus-accent-gold);
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+/* 导航链接 */
+.nexus-nav-menu {
+  display: flex;
+  align-items: center;
+}
+.nexus-nav-list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 26px;
+}
+.nexus-nav-item a {
+  color: var(--nexus-text-secondary);
+  font-size: 14.5px;
+  font-weight: 500;
+  padding: 8px 4px;
+  position: relative;
+}
+.nexus-nav-item a:hover {
+  color: var(--nexus-accent-cyan);
+}
+.nexus-nav-item a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--nexus-primary), var(--nexus-accent-cyan));
+  transition: width 0.25s ease;
+}
+.nexus-nav-item a:hover::after {
+  width: 100%;
+}
+
+/* 导航右侧 CTA */
+.nexus-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* 按钮体系 */
+.btn-nexus {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  border-radius: var(--nexus-radius-full);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--nexus-transition);
+  text-decoration: none !important;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+.btn-nexus-primary {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: #ffffff !important;
+  box-shadow: 0 4px 18px rgba(99, 102, 241, 0.4);
+}
+.btn-nexus-primary:hover {
+  background: linear-gradient(135deg, #818cf8, #6366f1);
+  box-shadow: 0 6px 24px rgba(99, 102, 241, 0.6);
+  transform: translateY(-1px);
+}
+.btn-nexus-cyan {
+  background: linear-gradient(135deg, #0891b2, #06b6d4);
+  color: #ffffff !important;
+  box-shadow: 0 4px 18px rgba(6, 182, 212, 0.35);
+}
+.btn-nexus-cyan:hover {
+  background: linear-gradient(135deg, #06b6d4, #22d3ee);
+  box-shadow: 0 6px 24px rgba(6, 182, 212, 0.55);
+  transform: translateY(-1px);
+}
+.btn-nexus-outline {
+  background: rgba(14, 19, 32, 0.6);
+  color: var(--nexus-accent-cyan) !important;
+  border: 1px solid var(--nexus-border-bright);
+}
+.btn-nexus-outline:hover {
+  background: rgba(99, 102, 241, 0.12);
+  border-color: var(--nexus-accent-cyan);
+  color: #ffffff !important;
+  transform: translateY(-1px);
+}
+.btn-nexus-sm {
+  padding: 7px 16px;
+  font-size: 13px;
+}
+.btn-nexus-lg {
+  padding: 13px 30px;
+  font-size: 16px;
+}
+
+/* 移动端汉堡菜单 (纯 CSS) */
+.nexus-nav-toggle {
+  display: none;
+}
+.nexus-hamburger-label {
+  display: none;
+  width: 36px;
+  height: 36px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  border-radius: var(--nexus-radius-sm);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--nexus-border-subtle);
+}
+.nexus-hamburger-label span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: var(--nexus-text-primary);
+  transition: var(--nexus-transition);
+}
+
+/* Hero 区域：智能支持罗盘 (Support Nexus Compass) */
+.nexus-hero {
+  position: relative;
+  padding: 80px 0 70px;
+  overflow: hidden;
+}
+.nexus-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 48px;
+}
+.nexus-tag-hub {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(99, 102, 241, 0.18);
+  border: 1px solid var(--nexus-border-bright);
+  border-radius: var(--nexus-radius-full);
+  font-size: 13px;
+  color: var(--nexus-accent-cyan);
+  margin-bottom: 22px;
+}
+.nexus-tag-badge {
+  background: var(--nexus-accent-gold);
+  color: #07090e;
+  font-weight: 700;
+  font-size: 11px;
+  padding: 2px 7px;
+  border-radius: var(--nexus-radius-full);
+}
+.nexus-hero-title {
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 1.22;
+  letter-spacing: -0.5px;
+  margin-bottom: 20px;
+}
+.nexus-title-gradient {
+  background: linear-gradient(135deg, #a5b4fc 0%, #38bdf8 50%, #facc15 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.nexus-hero-desc {
+  font-size: 16.5px;
+  color: var(--nexus-text-secondary);
+  line-height: 1.75;
+  margin-bottom: 32px;
+  max-width: 580px;
+}
+.nexus-hero-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+.nexus-metrics-row {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.nexus-metric-col {
+  display: flex;
+  flex-direction: column;
+}
+.nexus-metric-val {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--nexus-text-primary);
+}
+.nexus-metric-val span {
+  color: var(--nexus-accent-cyan);
+  font-size: 18px;
+}
+.nexus-metric-lbl {
+  font-size: 12px;
+  color: var(--nexus-text-muted);
+}
+
+/* Hero 右侧：手托全息排障罗盘与自愈护盾动效 */
+.nexus-compass-stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.nexus-compass-svg {
+  width: 100%;
+  max-width: 440px;
+  height: auto;
+  filter: drop-shadow(0 0 32px rgba(99, 102, 241, 0.28));
+}
+.help-palm-cradle {
+  transform-origin: 220px 335px;
+  animation: helpPalmHover 5.5s ease-in-out infinite;
+}
+@keyframes helpPalmHover {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+.help-aura-pulse {
+  transform-origin: 220px 170px;
+  animation: helpAuraGlow 4s ease-in-out infinite;
+}
+@keyframes helpAuraGlow {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.08); opacity: 0.95; }
+}
+.help-shield-system {
+  transform-origin: 220px 165px;
+  animation: helpShieldFloat 5.5s ease-in-out infinite;
+}
+@keyframes helpShieldFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.help-ring-cw {
+  transform-origin: 220px 165px;
+  animation: helpRingSpinCW 20s linear infinite;
+}
+.help-ring-ccw {
+  transform-origin: 220px 165px;
+  animation: helpRingSpinCCW 15s linear infinite;
+}
+@keyframes helpRingSpinCW {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes helpRingSpinCCW {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+.help-shield-pulse {
+  transform-origin: 220px 165px;
+  animation: shieldPulse 3s ease-in-out infinite;
+}
+@keyframes shieldPulse {
+  0%, 100% { transform: scale(1); stroke-width: 2.5px; }
+  50% { transform: scale(1.04); stroke-width: 3.2px; }
+}
+.help-ecg-line {
+  stroke-dasharray: 120;
+  animation: ecgFlow 2.8s linear infinite;
+}
+@keyframes ecgFlow {
+  0% { stroke-dashoffset: 240; opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0.3; }
+}
+.help-laser-scan {
+  animation: laserScan 2.6s ease-in-out infinite alternate;
+}
+@keyframes laserScan {
+  0% { transform: translateY(-20px); opacity: 0.3; }
+  50% { opacity: 0.9; }
+  100% { transform: translateY(40px); opacity: 0.3; }
+}
+.help-beam-stream {
+  animation: helpStreamRise 2.2s linear infinite;
+}
+.help-beam-stream-fast {
+  animation: helpStreamRise 1.6s linear infinite;
+}
+@keyframes helpStreamRise {
+  0% { stroke-dashoffset: 20; opacity: 0.25; }
+  50% { opacity: 0.95; }
+  100% { stroke-dashoffset: 0; opacity: 0.25; }
+}
+.help-dot-blink {
+  transform-origin: 140px 393px;
+  animation: helpDotBlink 2s ease-in-out infinite;
+}
+@keyframes helpDotBlink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.75); }
+}
+
+
+/* 通用 Section 头部 */
+.nexus-section {
+  padding: 80px 0;
+  position: relative;
+}
+.nexus-sec-header {
+  text-align: center;
+  margin-bottom: 54px;
+}
+.nexus-sec-pill {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: var(--nexus-radius-full);
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid var(--nexus-border-subtle);
+  color: var(--nexus-accent-cyan);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.nexus-sec-title {
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 14px;
+}
+.nexus-sec-desc {
+  font-size: 16px;
+  color: var(--nexus-text-secondary);
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* 配置指南四格网格 (4张) */
+.guides-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+.guide-card {
+  background: var(--nexus-bg-card);
+  border: 1px solid var(--nexus-border-subtle);
+  border-top: 3px solid var(--nexus-primary);
+  border-radius: var(--nexus-radius-md);
+  padding: 28px 20px;
+  transition: var(--nexus-transition);
+  position: relative;
+}
+.guide-card:hover {
+  background: var(--nexus-bg-card-hover);
+  border-color: var(--nexus-border-cyan);
+  transform: translateY(-4px);
+  box-shadow: var(--nexus-shadow-card);
+}
+.guide-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--nexus-radius-sm);
+  background: rgba(99, 102, 241, 0.16);
+  border: 1px solid var(--nexus-border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  color: var(--nexus-accent-cyan);
+}
+.guide-card-title {
+  font-size: 17.5px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.guide-card-text {
+  font-size: 13.8px;
+  color: var(--nexus-text-secondary);
+  line-height: 1.65;
+}
+
+/* 故障自愈诊断四格 (4张) */
+.diag-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+.diag-card {
+  background: var(--nexus-bg-card);
+  border: 1px solid var(--nexus-border-subtle);
+  border-radius: var(--nexus-radius-md);
+  padding: 26px 20px;
+  transition: var(--nexus-transition);
+}
+.diag-card:hover {
+  border-color: var(--nexus-accent-gold);
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(234, 179, 8, 0.2);
+}
+.diag-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: var(--nexus-radius-full);
+  font-size: 11px;
+  font-weight: 700;
+  background: rgba(234, 179, 8, 0.15);
+  color: var(--nexus-accent-gold);
+  border: 1px solid rgba(234, 179, 8, 0.4);
+  margin-bottom: 14px;
+}
+.diag-title {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.diag-desc {
+  font-size: 13.5px;
+  color: var(--nexus-text-secondary);
+  line-height: 1.6;
+}
+
+/* 价格对比表 (3个套餐) */
+.support-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  align-items: stretch;
+}
+.support-price-card {
+  background: var(--nexus-bg-card);
+  border: 1px solid var(--nexus-border-subtle);
+  border-radius: var(--nexus-radius-lg);
+  padding: 38px 28px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: var(--nexus-transition);
+}
+.support-price-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--nexus-shadow-card);
+}
+.support-price-featured {
+  background: linear-gradient(180deg, rgba(99, 102, 241, 0.16) 0%, rgba(18, 24, 40, 0.95) 100%);
+  border: 1.5px solid var(--nexus-accent-cyan);
+  box-shadow: 0 0 35px rgba(6, 182, 212, 0.22);
+}
+.support-price-flag {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #6366f1, #06b6d4);
+  color: #ffffff;
+  padding: 4px 16px;
+  border-radius: var(--nexus-radius-full);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.support-p-name {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.support-p-intro {
+  font-size: 13.5px;
+  color: var(--nexus-text-muted);
+  margin-bottom: 24px;
+  min-height: 40px;
+}
+.support-p-box {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 26px;
+}
+.support-p-curr {
+  font-size: 20px;
+  color: var(--nexus-accent-cyan);
+  font-weight: 600;
+}
+.support-p-val {
+  font-size: 44px;
+  font-weight: 800;
+  color: var(--nexus-text-primary);
+}
+.support-p-period {
+  font-size: 14px;
+  color: var(--nexus-text-muted);
+}
+.support-p-list {
+  list-style: none;
+  margin-bottom: 32px;
+  flex-grow: 1;
+}
+.support-p-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--nexus-text-secondary);
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.support-p-list li svg {
+  width: 16px;
+  height: 16px;
+  color: var(--nexus-accent-cyan);
+  flex-shrink: 0;
+}
+.support-p-action {
+  margin-top: auto;
+}
+.support-p-action .btn-nexus {
+  width: 100%;
+}
+
+/* FAQ 常见问答 (4个) */
+.nexus-faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+details.nexus-faq-box {
+  background: var(--nexus-bg-card);
+  border: 1px solid var(--nexus-border-subtle);
+  border-radius: var(--nexus-radius-md);
+  padding: 22px 26px;
+  transition: var(--nexus-transition);
+  cursor: pointer;
+}
+details.nexus-faq-box:hover, details.nexus-faq-box[open] {
+  border-color: var(--nexus-border-bright);
+}
+summary.nexus-faq-q {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 16.5px;
+  font-weight: 600;
+  color: var(--nexus-text-primary);
+  user-select: none;
+}
+summary.nexus-faq-q::-webkit-details-marker {
+  display: none;
+}
+.nexus-faq-q-text {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+.nexus-faq-badge {
+  color: var(--nexus-accent-cyan);
+  font-weight: 700;
+  font-size: 17px;
+}
+.nexus-faq-arrow {
+  font-size: 11px;
+  color: var(--nexus-accent-cyan);
+  transition: transform 0.25s ease;
+}
+details[open] .nexus-faq-arrow {
+  transform: rotate(180deg);
+}
+details.nexus-faq-box .nexus-faq-a {
+  margin-top: 14px;
+  font-size: 14px;
+  color: var(--nexus-text-secondary);
+  line-height: 1.7;
+  padding-left: 24px;
+}
+
+.page-action-center {
+  margin-top: 36px;
+  text-align: center;
+}
+.table-row-alt {
+  background: rgba(14, 19, 32, 0.45);
+}
+.text-cyan {
+  color: var(--nexus-accent-cyan);
+}
+
+/* 用户技术支持口碑 (3位用户) */
+.feedback-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.feedback-card {
+  background: var(--nexus-bg-card);
+  border: 1px solid var(--nexus-border-subtle);
+  border-radius: var(--nexus-radius-md);
+  padding: 26px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--nexus-transition);
+}
+.feedback-card:hover {
+  border-color: var(--nexus-border-bright);
+  transform: translateY(-3px);
+}
+.feedback-quote {
+  font-size: 13.8px;
+  color: var(--nexus-text-secondary);
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+.feedback-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+.feedback-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--nexus-primary), var(--nexus-accent-cyan));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  color: #ffffff;
+}
+.feedback-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--nexus-text-primary);
+}
+.feedback-role {
+  font-size: 12px;
+  color: var(--nexus-text-muted);
+}
+
+/* 底部极简规范页脚：严格只有4个链接 (全中文) */
+.nexus-footer {
+  background: #05070b;
+  border-top: 1px solid var(--nexus-border-subtle);
+  padding: 40px 0 30px;
+  margin-top: 60px;
+}
+.nexus-footer-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  gap: 36px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+.nexus-footer-nav a {
+  color: var(--nexus-text-secondary);
+  font-size: 14.5px;
+  font-weight: 500;
+  transition: var(--nexus-transition);
+}
+.nexus-footer-nav a:hover {
+  color: var(--nexus-accent-cyan);
+}
+.nexus-footer-copy {
+  text-align: center;
+  font-size: 12.5px;
+  color: var(--nexus-text-muted);
+}
+
+/* 资讯中心聚合页专属样式 */
+.topics-header {
+  padding: 60px 0 40px;
+  text-align: center;
+}
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 60px;
+}
+.topics-card {
+  background: var(--nexus-bg-card);
+  border: 1px solid var(--nexus-border-subtle);
+  border-radius: var(--nexus-radius-md);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  transition: var(--nexus-transition);
+}
+.topics-card:hover {
+  border-color: var(--nexus-accent-cyan);
+  transform: translateY(-4px);
+  box-shadow: var(--nexus-shadow-card);
+}
+.topics-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--nexus-text-muted);
+  margin-bottom: 14px;
+}
+.topics-card-tag {
+  background: rgba(99, 102, 241, 0.18);
+  color: var(--nexus-accent-cyan);
+  padding: 2px 8px;
+  border-radius: var(--nexus-radius-sm);
+  font-weight: 600;
+}
+.topics-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.45;
+  margin-bottom: 14px;
+  color: var(--nexus-text-primary);
+}
+.topics-card:hover .topics-card-title {
+  color: var(--nexus-accent-cyan);
+}
+.topics-card-excerpt {
+  font-size: 14px;
+  color: var(--nexus-text-secondary);
+  line-height: 1.68;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+.topics-card-readmore {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--nexus-accent-cyan);
+}
+.topics-card:hover .topics-card-readmore {
+  color: var(--nexus-accent-gold);
+}
+
+/* 独立文章详情排版 */
+.article-nexus-container {
+  max-width: 860px;
+  margin: 40px auto 70px;
+  padding: 0 24px;
+}
+.article-nexus-header {
+  margin-bottom: 36px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.article-nexus-breadcrumb {
+  font-size: 13px;
+  color: var(--nexus-text-muted);
+  margin-bottom: 18px;
+}
+.article-nexus-breadcrumb a {
+  color: var(--nexus-text-secondary);
+}
+.article-nexus-breadcrumb a:hover {
+  color: var(--nexus-accent-cyan);
+}
+.article-nexus-headline {
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1.35;
+  margin-bottom: 16px;
+  color: var(--nexus-text-primary);
+}
+.article-nexus-meta {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 13px;
+  color: var(--nexus-text-muted);
+  flex-wrap: wrap;
+}
+.article-nexus-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.article-nexus-body {
+  font-size: 16px;
+  color: #cbd5e1;
+  line-height: 1.85;
+}
+.article-nexus-body h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--nexus-text-primary);
+  margin: 42px 0 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+}
+.article-nexus-body h3 {
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--nexus-accent-cyan);
+  margin: 28px 0 12px;
+}
+.article-nexus-body p {
+  margin-bottom: 22px;
+  text-align: justify;
+}
+.article-nexus-body ul, .article-nexus-body ol {
+  margin: 18px 0 24px 24px;
+  color: var(--nexus-text-secondary);
+}
+.article-nexus-body li {
+  margin-bottom: 8px;
+}
+.nexus-callout {
+  background: rgba(99, 102, 241, 0.1);
+  border-left: 4px solid var(--nexus-primary);
+  border-radius: 0 var(--nexus-radius-sm) var(--nexus-radius-sm) 0;
+  padding: 18px 22px;
+  margin: 28px 0;
+  font-size: 15px;
+  color: var(--nexus-text-primary);
+}
+.nexus-cta-card {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.18), rgba(6, 182, 212, 0.14));
+  border: 1px solid var(--nexus-border-bright);
+  border-radius: var(--nexus-radius-md);
+  padding: 30px 24px;
+  margin: 45px 0 20px;
+  text-align: center;
+}
+.nexus-cta-card h3 {
+  color: #ffffff;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.nexus-cta-card p {
+  color: var(--nexus-text-secondary);
+  max-width: 540px;
+  margin: 0 auto 20px;
+  font-size: 14.5px;
+}
+
+/* 条款与政策排版 */
+.policy-nexus-page {
+  max-width: 900px;
+  margin: 50px auto 80px;
+  padding: 0 24px;
+}
+.policy-nexus-card {
+  background: var(--nexus-bg-card);
+  border: 1px solid var(--nexus-border-subtle);
+  border-radius: var(--nexus-radius-lg);
+  padding: 44px 36px;
+}
+.policy-nexus-card h1 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: var(--nexus-text-primary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 16px;
+}
+.policy-nexus-card h2 {
+  font-size: 20px;
+  color: var(--nexus-accent-cyan);
+  margin: 32px 0 14px;
+}
+.policy-nexus-card p {
+  color: var(--nexus-text-secondary);
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+.policy-nexus-card ul {
+  margin: 12px 0 20px 24px;
+  color: var(--nexus-text-secondary);
+}
+.policy-nexus-card li {
+  margin-bottom: 8px;
+}
+
+/* 网站地图排版 */
+.sitemap-nexus-group {
+  margin-bottom: 30px;
+}
+.sitemap-nexus-group h2 {
+  font-size: 18px;
+  color: var(--nexus-accent-gold);
+  margin-bottom: 14px;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+  padding-bottom: 8px;
+}
+.sitemap-nexus-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.sitemap-nexus-list li a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--nexus-radius-sm);
+  font-size: 14px;
+}
+.sitemap-nexus-list li a:hover {
+  background: rgba(6, 182, 212, 0.08);
+  border-color: var(--nexus-border-bright);
+}
+
+/* 响应式断点 */
+@media (max-width: 1024px) {
+  .guides-grid, .diag-grid, .feedback-grid, .topics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .support-pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .nexus-hero {
+    padding: 40px 0 50px;
+  }
+  .nexus-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    text-align: center;
+  }
+  .nexus-tag-hub {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .nexus-hero-title {
+    font-size: 32px;
+  }
+  .nexus-hero-desc {
+    font-size: 15px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .nexus-hero-cta-group {
+    justify-content: center;
+  }
+  .nexus-metrics-row {
+    justify-content: center;
+    gap: 20px;
+  }
+  .nexus-sec-title {
+    font-size: 26px;
+  }
+  .guides-grid, .diag-grid, .nexus-faq-grid, .feedback-grid, .topics-grid, .sitemap-nexus-list {
+    grid-template-columns: 1fr;
+  }
+  .policy-nexus-card {
+    padding: 28px 18px;
+  }
+  .article-nexus-headline {
+    font-size: 24px;
+  }
+  .article-nexus-body h2 {
+    font-size: 20px;
+  }
+  .article-nexus-body h3 {
+    font-size: 17px;
+  }
+
+  .nexus-hamburger-label {
+    display: flex;
+  }
+  .nexus-nav-menu {
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: #090d16;
+    border-bottom: 1px solid var(--nexus-border-bright);
+    padding: 20px 24px;
+    display: none;
+    flex-direction: column;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.7);
+  }
+  .nexus-nav-list {
+    flex-direction: column;
+    width: 100%;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .nexus-nav-item {
+    width: 100%;
+  }
+  .nexus-nav-item a {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  .nexus-nav-toggle:checked ~ .nexus-nav-menu {
+    display: flex;
+  }
+}
+
+
+/* 相关阅读推荐 */
+.related-articles-sec {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--nexus-border-subtle);
+}
+.related-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--nexus-text-primary);
+}
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+.related-card {
+  display: block;
+  background: var(--nexus-bg-card);
+  border: 1px solid var(--nexus-border-subtle);
+  border-radius: var(--nexus-radius-md);
+  padding: 18px 20px;
+  text-decoration: none;
+  transition: var(--nexus-transition);
+}
+.related-card:hover {
+  border-color: var(--nexus-border-bright);
+  transform: translateY(-2px);
+}
+.related-cat {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--nexus-accent-cyan);
+  display: inline-block;
+  margin-bottom: 8px;
+}
+.related-heading {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--nexus-text-primary);
+  line-height: 1.5;
+  margin: 0;
+}
+.interlink-box {
+  margin-top: 24px;
+  padding: 14px 20px;
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px dashed var(--nexus-border-subtle);
+  border-radius: var(--nexus-radius-sm);
+  text-align: center;
+  font-size: 14px;
+  color: var(--nexus-text-secondary);
+}

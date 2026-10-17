@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>掌中世界-帮助中心 | 2026全平台客户端配置教程与技术支持智核</title>
+  <meta name="description" content="掌中世界-帮助中心为您提供高品质物理专线网络加速服务。依托多点Anycast与电信级物理光缆实现4K/8K视频极速秒开，AI模型长连接稳定不中断，是值得信赖的年度出海机场推荐首选。">
+  <meta name="keywords" content="掌中世界帮助中心,客户端配置教程,网络排障指南,节点连接超时修复,分流规则配置,跨境加速支持">
+  <link rel="stylesheet" href="style.css">
+  <link rel="canonical" href="https://zjs2026.help/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="掌中世界-帮助中心">
+  <meta property="og:title" content="掌中世界-帮助中心 | 2026全平台客户端配置教程与技术支持智核">
+  <meta property="og:description" content="掌中世界-帮助中心为您提供高品质物理专线网络加速服务。依托多点Anycast与电信级物理光缆实现4K/8K视频极速秒开，AI模型长连接稳定不中断，是值得信赖的年度出海机场推荐首选。">
+  <meta property="og:url" content="https://zjs2026.help/">
+  <meta property="og:image" content="https://zjs2026.help/og-preview.png">
+  <meta property="og:locale" content="zh_CN">
+</head>
+<body>
+
+  <!-- 顶部状态公告条 -->
+  <div class="nexus-topbar">
+    <div class="nexus-container nexus-topbar-flex">
+      <div class="support-beacon">
+        <span class="beacon-dot"></span>
+        <span>全球智核监控集群：全线专线与Anycast节点运行正常（在线率 99.98%）</span>
+      </div>
+      <div>
+        <span>遇到网络异常？查看全平台快速诊断方案</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 吸顶导航栏 -->
+  <header class="nexus-nav">
+    <div class="nexus-container nexus-nav-wrap">
+      <a href="index.html" class="nexus-logo-link" aria-label="返回首页">
+        <svg class="nexus-logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="22" stroke="#6366f1" stroke-width="2" stroke-dasharray="4 2"/>
+          <path d="M24 6L24 12" stroke="#06b6d4" stroke-width="2" stroke-linecap="round"/>
+          <path d="M24 36L24 42" stroke="#06b6d4" stroke-width="2" stroke-linecap="round"/>
+          <path d="M6 24L12 24" stroke="#06b6d4" stroke-width="2" stroke-linecap="round"/>
+          <path d="M36 24L42 24" stroke="#06b6d4" stroke-width="2" stroke-linecap="round"/>
+          <path d="M16 28C16 23.58 19.58 20 24 20C28.42 20 32 23.58 32 28V32C32 33.1 31.1 34 30 34H18C16.9 34 16 33.1 16 32V28Z" fill="url(#nexus-grad)" fill-opacity="0.3" stroke="#6366f1" stroke-width="2"/>
+          <circle cx="24" cy="18" r="4" fill="#06b6d4"/>
+          <path d="M24 14V10M20 16L17 14M28 16L31 14" stroke="#eab308" stroke-width="1.8" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="nexus-grad" x1="16" y1="20" x2="32" y2="34" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#6366f1"/>
+              <stop offset="1" stop-color="#06b6d4"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="nexus-logo-text">
+          <span class="nexus-logo-title">掌中世界</span>
+          <span class="nexus-logo-sub">HELP CENTER · 帮助中心</span>
+        </div>
+      </a>
+
+      <!-- 移动端汉堡切换器 -->
+      <input type="checkbox" id="nexus-nav-toggle" class="nexus-nav-toggle" aria-label="切换移动端导航">
+      <label for="nexus-nav-toggle" class="nexus-hamburger-label">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <!-- 导航列表 -->
+      <nav class="nexus-nav-menu">
+        <ul class="nexus-nav-list">
+          <li class="nexus-nav-item"><a href="index.html#guides" aria-current="page">配置指南</a></li>
+          <li class="nexus-nav-item"><a href="index.html#diagnostics">排障诊断</a></li>
+          <li class="nexus-nav-item"><a href="index.html#pricing">方案选型</a></li>
+          <li class="nexus-nav-item"><a href="index.html#faq">核心问答</a></li>
+          <li class="nexus-nav-item"><a href="index.html#feedback">客户口碑</a></li>
+          <li class="nexus-nav-item"><a href="support-topics.html">智核知识库</a></li>
+        </ul>
+      </nav>
+
+      <div class="nexus-nav-actions">
+        <a href="https://ww012.twilightaff.com/#/?code=A56DH1Af" target="_blank" rel="nofollow" class="btn-nexus btn-nexus-primary">开通专线</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主体区域 -->
+  <main>
+    <!-- Hero 区域：智能支持罗盘 -->
+    <section class="nexus-hero">
+      <div class="nexus-container">
+        <div class="nexus-hero-grid">
+          <div class="nexus-hero-info">
+            <div class="nexus-tag-hub">
+              <span class="nexus-tag-badge">NEW</span>
+              <span>2026 全栈加速协议与故障自愈排障体系已就绪</span>
+            </div>
+            <h1 class="nexus-hero-title">
+              掌中解惑达四方<br>
+              <span class="nexus-title-gradient">智引极速畅无阻</span>
+            </h1>
+            <p class="nexus-hero-desc">
+              掌中世界官方技术支持中心，专为跨境研学、远程办公、高清流媒体及高频交易用户构建。无论是客户端订阅安装、智能分流策略调优，还是偶发节点超时诊断，智核指南库秒级助您定位根因、快速畅联全球。
+            </p>
+            <div class="nexus-hero-cta-group">
+              <a href="https://ww012.twilightaff.com/#/?code=A56DH1Af" target="_blank" rel="nofollow" class="btn-nexus btn-nexus-cyan btn-nexus-lg">立即体验极速线路</a>
+              <a href="https://tizilab.net/paihang/" target="_blank" class="btn-nexus btn-nexus-outline btn-nexus-lg">2026最新梯子推荐</a>
+            </div>
+            <div class="nexus-metrics-row">
+              <div class="nexus-metric-col">
+                <span class="nexus-metric-val">99.98<span>%</span></span>
+                <span class="nexus-metric-lbl">服务在线可靠性</span>
+              </div>
+              <div class="nexus-metric-col">
+                <span class="nexus-metric-val">120<span>+</span></span>
+                <span class="nexus-metric-lbl">全球低延迟节点</span>
+              </div>
+              <div class="nexus-metric-col">
+                <span class="nexus-metric-val">&lt; 3<span>min</span></span>
+                <span class="nexus-metric-lbl">工单即时响应均值</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero 右侧：手托全息排障罗盘与自愈护盾动效 -->
+          <div class="nexus-compass-stage">
+            <svg class="nexus-compass-svg" viewBox="0 0 440 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="掌中世界手托全息智能诊断罗盘动图">
+              <defs>
+                <radialGradient id="helpAura" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#6366f1" stop-opacity="0.85"/>
+                  <stop offset="60%" stop-color="#06b6d4" stop-opacity="0.3"/>
+                  <stop offset="100%" stop-color="#070a13" stop-opacity="0"/>
+                </radialGradient>
+                <linearGradient id="helpHandGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#312e81" stop-opacity="0.9"/>
+                  <stop offset="60%" stop-color="#6366f1" stop-opacity="0.9"/>
+                  <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.95"/>
+                </linearGradient>
+                <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#6366f1" stop-opacity="0.85"/>
+                  <stop offset="50%" stop-color="#06b6d4" stop-opacity="0.7"/>
+                  <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.9"/>
+                </linearGradient>
+                <linearGradient id="laserGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#06b6d4" stop-opacity="0"/>
+                  <stop offset="50%" stop-color="#38bdf8" stop-opacity="1"/>
+                  <stop offset="100%" stop-color="#06b6d4" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+
+              <!-- 掌心发散光晕 -->
+              <circle cx="220" cy="170" r="135" fill="url(#helpAura)" class="help-aura-pulse"/>
+
+              <!-- 手托部分 (Cyber Palm Cradle) -->
+              <g class="help-palm-cradle">
+                <path d="M120 335 C150 375, 290 375, 320 335 C300 352, 250 365, 220 365 C190 365, 140 352, 120 335 Z" fill="url(#helpHandGrad)" opacity="0.8"/>
+                <path d="M110 305 C110 265, 135 245, 150 260 C160 270, 155 290, 140 315 C130 330, 118 322, 110 305 Z" fill="url(#helpHandGrad)" opacity="0.85"/>
+                <!-- 指尖微托 -->
+                <path d="M165 250 C175 210, 190 210, 195 240 L188 280 C180 286, 170 275, 165 250 Z" fill="url(#helpHandGrad)" opacity="0.85"/>
+                <path d="M208 235 C218 195, 232 195, 236 230 L230 280 C222 286, 214 275, 208 235 Z" fill="url(#helpHandGrad)" opacity="0.9"/>
+                <path d="M250 245 C260 210, 272 215, 275 242 L268 285 C260 290, 252 278, 250 245 Z" fill="url(#helpHandGrad)" opacity="0.85"/>
+                <path d="M290 270 C305 242, 320 252, 315 276 C310 300, 298 320, 288 326 Z" fill="url(#helpHandGrad)" opacity="0.8"/>
+                <!-- 掌面全息脉冲纹理 -->
+                <path d="M140 325 C180 350, 260 350, 300 325" stroke="#06b6d4" stroke-width="2" stroke-dasharray="4 4" fill="none" opacity="0.8"/>
+                <line x1="220" y1="315" x2="220" y2="250" stroke="#6366f1" stroke-width="2" stroke-dasharray="6 4" class="help-beam-stream"/>
+                <line x1="185" y1="310" x2="200" y2="250" stroke="#06b6d4" stroke-width="1.5" stroke-dasharray="4 4" class="help-beam-stream-fast"/>
+                <line x1="255" y1="310" x2="240" y2="250" stroke="#eab308" stroke-width="1.5" stroke-dasharray="4 4" class="help-beam-stream"/>
+              </g>
+
+              <!-- 手托之上的全息诊断护盾与罗盘 (Diagnostic Compass & Shield) -->
+              <g class="help-shield-system">
+                <!-- 外围刻度罗盘环 (顺时针) -->
+                <g class="help-ring-cw">
+                  <circle cx="220" cy="165" r="105" stroke="#6366f1" stroke-width="2" stroke-dasharray="14 16" fill="none"/>
+                  <circle cx="220" cy="60" r="5" fill="#06b6d4" filter="drop-shadow(0 0 6px #06b6d4)"/>
+                  <circle cx="220" cy="270" r="5" fill="#6366f1"/>
+                  <circle cx="115" cy="165" r="4.5" fill="#eab308"/>
+                  <circle cx="325" cy="165" r="4.5" fill="#06b6d4"/>
+                </g>
+
+                <!-- 逆时针罗盘内环 -->
+                <g class="help-ring-ccw">
+                  <circle cx="220" cy="165" r="82" stroke="#06b6d4" stroke-width="1.8" stroke-dasharray="8 8" fill="none" opacity="0.7"/>
+                  <polygon points="220,95 227,112 213,112" fill="#eab308"/>
+                  <polygon points="220,235 227,218 213,218" fill="#06b6d4"/>
+                </g>
+
+                <!-- 中心自愈诊断护盾六边形 -->
+                <polygon points="220,115 265,140 265,190 220,215 175,190 175,140" fill="#0e1320" stroke="url(#shieldGrad)" stroke-width="2.5" class="help-shield-pulse"/>
+                
+                <!-- 护盾内部心跳脉搏线 (ECG Waveform) -->
+                <path d="M182 165 L196 165 L202 150 L208 180 L216 142 L224 186 L230 160 L236 170 L242 165 L258 165" stroke="#38bdf8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none" class="help-ecg-line"/>
+
+                <!-- 激光扫描光条 (上下扫描) -->
+                <line x1="178" y1="140" x2="262" y2="140" stroke="url(#laserGrad)" stroke-width="3" class="help-laser-scan"/>
+
+                <!-- 核心状态光点 -->
+                <circle cx="220" cy="165" r="4.5" fill="#ffffff" filter="drop-shadow(0 0 6px #ffffff)"/>
+              </g>
+
+              <!-- 悬浮状态标签 -->
+              <g class="help-status-tag">
+                <rect x="125" y="380" width="190" height="26" rx="13" fill="#0f172a" stroke="#6366f1" stroke-width="1.2" opacity="0.9"/>
+                <circle cx="140" cy="393" r="3.5" fill="#06b6d4" class="help-dot-blink"/>
+                <text x="152" y="397" fill="#a5f3fc" font-size="11" font-weight="600" letter-spacing="0.5">掌中世界 · 智能自愈排障</text>
+              </g>
+            </svg>
+          </div>
+        <div class="interlink-box"><p>需要开通高速专线或升级流量方案？欢迎前往我们的 <a href="https://zjs2026.shop/" target="_blank">前往官方商城选购套餐</a>。</p></div>
+      </div>
+    </section>
+
+    <!-- 第一功能区：全平台极速客户端配置指南 -->
+    <section id="guides" class="nexus-section">
+      <div class="nexus-container">
+        <div class="nexus-sec-header">
+          <span class="nexus-sec-pill">QUICK SETUP GUIDES</span>
+          <h2 class="nexus-sec-title">全平台极速客户端配置指南</h2>
+          <p class="nexus-sec-desc">
+            从个人PC、智能手机到软路由旁路网关，掌中世界兼容主流协议生态，一键导入专属订阅，秒级开启全球极速网络。
+          </p>
+        </div>
+
+        <div class="guides-grid">
+          <div class="guide-card">
+            <div class="guide-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5L10 3.5V11.5L3 11.5V4.5ZM11.5 3.3L21 2V11.5L11.5 11.5V3.3ZM3 12.5L10 12.5V20.5L3 19.5V12.5ZM11.5 12.5L21 12.5V22L11.5 20.7V12.5Z"/></svg>
+            </div>
+            <h3 class="guide-card-title">Windows 客户端配置</h3>
+            <p class="guide-card-text">
+              推荐使用 Clash Verge Rev 或 Sing-box GUI。支持系统级 Tun 虚拟网卡模式，全面接管应用与游戏 UDP 流量，彻底解决网络重试与超时。
+            </p>
+          </div>
+
+          <div class="guide-card">
+            <div class="guide-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.6-1.02.9-2.06.8-3.08-1.08.1-2.32.74-2.95 1.76-.56.9-.84 1.94-.74 2.95 1.19.06 2.37-.58 2.89-1.63z"/></svg>
+            </div>
+            <h3 class="guide-card-title">macOS 高性能调优</h3>
+            <p class="guide-card-text">
+              专为 Apple Silicon M系列芯片深度适配，极低CPU占用。支持原生增强模式与透明网关解析，开发编译、Docker 镜像拉取极速拉满。
+            </p>
+          </div>
+
+          <div class="guide-card">
+            <div class="guide-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            </div>
+            <h3 class="guide-card-title">iOS 移动端畅联</h3>
+            <p class="guide-card-text">
+              支持 Shadowrocket、Quantumult X 与 Loon。一键扫码导入配置，自动按 Wi-Fi 与蜂窝数据切换分流策略，待机省电平滑无感。
+            </p>
+          </div>
+
+          <div class="guide-card">
+            <div class="guide-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+            </div>
+            <h3 class="guide-card-title">Android / 软路由部署</h3>
+            <p class="guide-card-text">
+              支持 Clash Meta for Android 及 OpenWrt 旁路路由透明代理插件。家庭多设备免客户端共享低延迟网络，智能电视4K秒开。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 第二功能区：四大常见网络故障自愈诊断 -->
+    <section id="diagnostics" class="nexus-section table-row-alt">
+      <div class="nexus-container">
+        <div class="nexus-sec-header">
+          <span class="nexus-sec-pill">SELF-HEALING DIAGNOSTICS</span>
+          <h2 class="nexus-sec-title">四大常见网络故障自愈诊断</h2>
+          <p class="nexus-sec-desc">
+            遇到连接超时或订阅拉取失败？先按下列排障清单核对，90% 以上的常见客户端异常可在 1 分钟内自行排除。
+          </p>
+        </div>
+
+        <div class="diag-grid">
+          <div class="diag-card">
+            <span class="diag-badge">排障排查 · 01</span>
+            <h3 class="diag-title">本地系统时钟偏差</h3>
+            <p class="diag-desc">
+              TLS 握手及 AEAD 协议对本地时钟有严格校验。若本机时间与标准网络授时误差大于 60 秒，将直接导致握手被拒。请在系统设置中启用“自动同步时钟”。
+            </p>
+          </div>
+
+          <div class="diag-card">
+            <span class="diag-badge">排障排查 · 02</span>
+            <h3 class="diag-title">订阅链接拉取 504/403</h3>
+            <p class="diag-desc">
+              当本地 DNS 污染导致域名解析失败时，可暂时将电脑 DNS 手动指定为 119.29.29.29 或 223.5.5.5，并关闭本地其他网络过滤安全软件后再重试拉取。
+            </p>
+          </div>
+
+          <div class="diag-card">
+            <span class="diag-badge">排障排查 · 03</span>
+            <h3 class="diag-title">测速超时但网页能打开</h3>
+            <p class="diag-desc">
+              部分客户端默认对 Google 或 Cloudflare 发起 ICMP Ping 测试，若节点关闭了 ICMP 响应则显示超时，但这并不影响实际 TCP/UDP 流量的极速转发。
+            </p>
+          </div>
+
+          <div class="diag-card">
+            <span class="diag-badge">排障排查 · 04</span>
+            <h3 class="diag-title">分流规则误伤国内站点</h3>
+            <p class="diag-desc">
+              检查分流模式是否误设为“全局（Global）”。日常使用请选择“规则（Rule）”模式，以保证国内应用直连直达、海内外出海流量各行其道。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 第三功能区：价格方案与服务选型 -->
+    <section id="pricing" class="nexus-section">
+      <div class="nexus-container">
+        <div class="nexus-sec-header">
+          <span class="nexus-sec-pill">SERVICE PACKAGES</span>
+          <h2 class="nexus-sec-title">技术支持与线路方案选型</h2>
+          <p class="nexus-sec-desc">
+            全系标配 BGP 多线接入与隧道冗余容灾，满足从日常网页研学到企业级高并发数据交付的多重需求。
+          </p>
+        </div>
+
+        <div class="support-pricing-grid">
+          <!-- 方案 1 -->
+          <div class="support-price-card">
+            <h3 class="support-p-name">畅联基础版</h3>
+            <p class="support-p-intro">适合轻量外贸咨询、学术资料检索与海外主流社交媒体沟通</p>
+            <div class="support-p-box">
+              <span class="support-p-curr">¥</span>
+              <span class="support-p-val">17</span>
+              <span class="support-p-period">/ 月</span>
+            </div>
+            <ul class="support-p-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>每月 120GB 高速优质流量</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>覆盖 20+ 亚太与欧美骨干节点</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>最高 300Mbps 峰值带宽</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>支持 3 台终端并发在线</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>工单标准技术支持支持响应</li>
+            </ul>
+            <div class="support-p-action">
+              <a href="https://ww012.twilightaff.com/#/?code=A56DH1Af" target="_blank" rel="nofollow" class="btn-nexus btn-nexus-outline">立即开通方案</a>
+            </div>
+          </div>
+
+          <!-- 方案 2 (推荐) -->
+          <div class="support-price-card support-price-featured">
+            <div class="support-price-flag">站长力荐 · 高性价比</div>
+            <h3 class="support-p-name">极光增强版</h3>
+            <p class="support-p-intro">适合 4K/8K 极清流媒体、大模型实时推理交互与跨国远程桌面</p>
+            <div class="support-p-box">
+              <span class="support-p-curr">¥</span>
+              <span class="support-p-val">37</span>
+              <span class="support-p-period">/ 月</span>
+            </div>
+            <ul class="support-p-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>每月 380GB IPLC/IEPL 专线流量</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>覆盖 80+ 全球超清解锁节点</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>独享 1000Mbps 端口峰值速率</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>支持 6 台终端多设备并发</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>专属高优先级客服与节点调优</li>
+            </ul>
+            <div class="support-p-action">
+              <a href="https://ww012.twilightaff.com/#/?code=A56DH1Af" target="_blank" rel="nofollow" class="btn-nexus btn-nexus-primary">立刻开通尊享</a>
+            </div>
+          </div>
+
+          <!-- 方案 3 -->
+          <div class="support-price-card">
+            <h3 class="support-p-name">卓越企业版</h3>
+            <p class="support-p-intro">专为跨境电商团队、出海研发工作室及多分支跨洋协作量身打造</p>
+            <div class="support-p-box">
+              <span class="support-p-curr">¥</span>
+              <span class="support-p-val">82</span>
+              <span class="support-p-period">/ 月</span>
+            </div>
+            <ul class="support-p-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>每月 1000GB 全专线企业专网</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>纯净家宽原生 IP 与全流媒体支持</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>不设限突发带宽及独立 QoS 队列</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>支持 15 台设备并发无阻</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>7×24 小时技术专属协助保障</li>
+            </ul>
+            <div class="support-p-action">
+              <a href="https://ww012.twilightaff.com/#/?code=A56DH1Af" target="_blank" rel="nofollow" class="btn-nexus btn-nexus-outline">开通企业专线</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 第四功能区：高频排障核心问答 (FAQ) -->
+    <section id="faq" class="nexus-section table-row-alt">
+      <div class="nexus-container">
+        <div class="nexus-sec-header">
+          <span class="nexus-sec-pill">KNOWLEDGE FAQ</span>
+          <h2 class="nexus-sec-title">高频排障核心问答</h2>
+          <p class="nexus-sec-desc">
+            汇聚上万用户服务沉淀，梳理出最高频的配置、订阅及规则管理疑难，帮您即刻消除疑惑。
+          </p>
+        </div>
+
+        <div class="nexus-faq-grid">
+          <details class="nexus-faq-box" open>
+            <summary class="nexus-faq-q">
+              <span class="nexus-faq-q-text">
+                <span class="nexus-faq-badge">Q1:</span> 为什么订阅更新后节点列表依然为空？
+              </span>
+              <span class="nexus-faq-arrow">▼</span>
+            </summary>
+            <p class="nexus-faq-a">
+              通常是由于客户端未勾选“允许不安全证书”或本地代理软件抢占了系统端口。请检查客户端设置中的系统代理开关，或者复制订阅链接至浏览器中测试是否可直接下载基础配置文本。
+            </p>
+          </details>
+
+          <details class="nexus-faq-box">
+            <summary class="nexus-faq-q">
+              <span class="nexus-faq-q-text">
+                <span class="nexus-faq-badge">Q2:</span> 开着代理时为何微信与网银加载变慢？
+              </span>
+              <span class="nexus-faq-arrow">▼</span>
+            </summary>
+            <p class="nexus-faq-a">
+              这是因为分流规则未生效，导致国内直连流量被强制绕行境外节点。请确保客户端切换为“规则（Rule）”或“绕过大陆”模式，并定期更新本地 GeoIP 数据库。
+            </p>
+          </details>
+
+          <details class="nexus-faq-box">
+            <summary class="nexus-faq-q">
+              <span class="nexus-faq-q-text">
+                <span class="nexus-faq-badge">Q3:</span> 如何在软路由上实现全家设备自动翻墙？
+              </span>
+              <span class="nexus-faq-arrow">▼</span>
+            </summary>
+            <p class="nexus-faq-a">
+              您可以在 OpenWrt 中安装 Passwall 或 OpenClash，将掌中世界的订阅导入并启用 Tun 虚拟网卡模式，路由器将自动对出海数据包执行旁路透明分流，免去各终端反复配置。
+            </p>
+          </details>
+
+          <details class="nexus-faq-box">
+            <summary class="nexus-faq-q">
+              <span class="nexus-faq-q-text">
+                <span class="nexus-faq-badge">Q4:</span> 遇到节点大面积变红或延迟显示为 -1 怎么办？
+              </span>
+              <span class="nexus-faq-arrow">▼</span>
+            </summary>
+            <p class="nexus-faq-a">
+              首先检查本地网络连接是否正常，其次在客户端内手动执行“更新订阅”以获取最新解析入口。若遇运营商突发链路抖动，平台智能中枢会在 60 秒内自动切换备用 BGP 路由。
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 第五功能区：用户技术支持服务口碑 -->
+    <section id="feedback" class="nexus-section">
+      <div class="nexus-container">
+        <div class="nexus-sec-header">
+          <span class="nexus-sec-pill">USER REVIEWS</span>
+          <h2 class="nexus-sec-title">用户技术支持服务口碑</h2>
+          <p class="nexus-sec-desc">
+            看看各行业专业用户对掌中世界技术支持响应、稳定性及客户端体验的真实反馈。
+          </p>
+        </div>
+
+        <div class="feedback-grid">
+          <div class="feedback-card">
+            <p class="feedback-quote">
+              “以前在配置 OpenWrt 软路由时总遇到 DNS 污染死循环，看了掌中世界帮助中心的 DoH 解析实操教程，10分钟就配置成功了！全家手机电视秒级出海，延迟极低。”
+            </p>
+            <div class="feedback-user">
+              <div class="feedback-avatar">周</div>
+              <div>
+                <div class="feedback-name">周工</div>
+                <div class="feedback-role">全栈架构师 · 深圳</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="feedback-card">
+            <p class="feedback-quote">
+              “我们做跨境电商最怕店铺 IP 漂移导致封号。掌中世界的原生纯净节点非常稳定，技术支持团队甚至帮我们定制了分流策略，让不同店铺走固定路由，特别踏实！”
+            </p>
+            <div class="feedback-user">
+              <div class="feedback-avatar">林</div>
+              <div>
+                <div class="feedback-name">林女士</div>
+                <div class="feedback-role">跨境电商运营总监 · 广州</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="feedback-card">
+            <p class="feedback-quote">
+              “晚高峰看油管4K经常卡顿的问题终于解决了。跟着帮助中心的 TCP 窗口缩放调优文档改了一下参数，吞吐直接拉满千兆宽带，客服工单回复也是分分钟的事。”
+            </p>
+            <div class="feedback-user">
+              <div class="feedback-avatar">陈</div>
+              <div>
+                <div class="feedback-name">陈同学</div>
+                <div class="feedback-role">AI 算法研究生 · 北京</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 底部极简规范页脚：严格只有4个链接 (全中文) -->
+  <footer class="nexus-footer">
+    <div class="nexus-container">
+      <ul class="nexus-footer-nav">
+        <li><a href="sitemap.html">网站地图</a></li>
+        <li><a href="about.html">关于我们</a></li>
+        <li><a href="terms.html">服务条款</a></li>
+        <li><a href="privacy.html">隐私政策</a></li>
+      </ul>
+      <p class="nexus-footer-copy">
+        &copy; 2026 掌中世界-帮助中心 (zjs2026.help). 版权所有 · 专注于全平台客户端配置教程与极速出海网络排障.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
