@@ -1,199 +1,186 @@
 <!DOCTYPE html>
+
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>智核知识库：连接排障与设置指南 - 掌中世界-帮助中心</title>
-  <meta name="description" content="掌中世界帮助中心知识库：连不上网七步自查、分流规则、DNS 设置、手机热点、流媒体提示排查与缓冲膨胀说明。">
-  <link rel="stylesheet" href="style.css">
-  <link rel="canonical" href="https://zjs2026.help/support-topics.html">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="掌中世界-帮助中心">
-  <meta property="og:title" content="智核知识库：连接排障与设置指南 - 掌中世界-帮助中心">
-  <meta property="og:description" content="掌中世界帮助中心知识库：连不上网七步自查、分流规则、DNS 设置、手机热点、流媒体提示排查与缓冲膨胀说明。">
-  <meta property="og:url" content="https://zjs2026.help/support-topics.html">
-  <meta property="og:image" content="https://zjs2026.help/og-preview.png">
-  <meta property="og:locale" content="zh_CN">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>智核知识库：连接排障与设置指南 - 掌中世界-帮助中心</title>
+<meta content="掌中世界帮助中心知识库：连不上网七步自查、分流规则、DNS 设置、手机热点、流媒体提示排查与缓冲膨胀说明。" name="description"/>
+<link href="style.css" rel="stylesheet"/>
+<link href="https://zjs2026.help/support-topics.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="掌中世界-帮助中心" property="og:site_name"/>
+<meta content="智核知识库：连接排障与设置指南 - 掌中世界-帮助中心" property="og:title"/>
+<meta content="掌中世界帮助中心知识库：连不上网七步自查、分流规则、DNS 设置、手机热点、流媒体提示排查与缓冲膨胀说明。" property="og:description"/>
+<meta content="https://zjs2026.help/support-topics.html" property="og:url"/>
+<meta content="https://zjs2026.help/og-preview.png" property="og:image"/>
+<meta content="zh_CN" property="og:locale"/>
 </head>
 <body>
-
-  <!-- 吸顶导航栏 -->
-  <header class="nexus-nav">
-    <div class="nexus-container nexus-nav-wrap">
-      <a href="index.html" class="nexus-logo-link" aria-label="返回首页">
-        <svg class="nexus-logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="24" cy="24" r="22" stroke="#6366f1" stroke-width="2" stroke-dasharray="4 2"/>
-          <path d="M24 6L24 12" stroke="#06b6d4" stroke-width="2" stroke-linecap="round"/>
-          <path d="M24 36L24 42" stroke="#06b6d4" stroke-width="2" stroke-linecap="round"/>
-          <path d="M6 24L12 24" stroke="#06b6d4" stroke-width="2" stroke-linecap="round"/>
-          <path d="M36 24L42 24" stroke="#06b6d4" stroke-width="2" stroke-linecap="round"/>
-          <path d="M16 28C16 23.58 19.58 20 24 20C28.42 20 32 23.58 32 28V32C32 33.1 31.1 34 30 34H18C16.9 34 16 33.1 16 32V28Z" fill="url(#nexus-grad)" fill-opacity="0.3" stroke="#6366f1" stroke-width="2"/>
-          <circle cx="24" cy="18" r="4" fill="#06b6d4"/>
-          <path d="M24 14V10M20 16L17 14M28 16L31 14" stroke="#eab308" stroke-width="1.8" stroke-linecap="round"/>
-          <defs>
-            <linearGradient id="nexus-grad" x1="16" y1="20" x2="32" y2="34" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#6366f1"/>
-              <stop offset="1" stop-color="#06b6d4"/>
-            </linearGradient>
-          </defs>
-        </svg>
-        <div class="nexus-logo-text">
-          <span class="nexus-logo-title">掌中世界</span>
-          <span class="nexus-logo-sub">HELP CENTER · 帮助中心</span>
-        </div>
-      </a>
-
-      <!-- 移动端汉堡切换器 -->
-      <input type="checkbox" id="nexus-nav-toggle" class="nexus-nav-toggle" aria-label="切换移动端导航">
-      <label for="nexus-nav-toggle" class="nexus-hamburger-label">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-
-      <!-- 导航列表 -->
-      <nav class="nexus-nav-menu">
-        <ul class="nexus-nav-list">
-          <li class="nexus-nav-item"><a href="index.html#guides" aria-current="page">配置指南</a></li>
-          <li class="nexus-nav-item"><a href="index.html#diagnostics">排障诊断</a></li>
-          <li class="nexus-nav-item"><a href="index.html#pricing">方案选型</a></li>
-          <li class="nexus-nav-item"><a href="index.html#faq">核心问答</a></li>
-          <li class="nexus-nav-item"><a href="index.html#feedback">客户口碑</a></li>
-          <li class="nexus-nav-item"><a href="support-topics.html">智核知识库</a></li>
-        </ul>
-      </nav>
-
-      <div class="nexus-nav-actions">
-        <a href="https://ww012.twilightaff.com/#/?code=A56DH1Af" target="_blank" rel="nofollow" class="btn-nexus btn-nexus-primary">开通专线</a>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <div class="topics-header">
-      <div class="nexus-container">
-        <span class="nexus-sec-pill">KNOWLEDGE REPOSITORY</span>
-        <h1 class="nexus-sec-title">智核知识库 · 连接排障与设置指南</h1>
-        <p class="nexus-sec-desc">把常见问题讲清楚，把设置步骤写明白，遇到状况先在这里查一遍。</p>
-      </div>
-    </div>
-
-    <div class="nexus-container">
-      <div class="topics-grid">
-        <!-- 文章 1 -->
-        <article class="topics-card">
-          <div class="topics-card-meta">
-            <span class="topics-card-tag">官方手册</span>
-            <span>2026-11-15</span>
-          </div>
-          <h2 class="topics-card-title">
-            <a href="palm-world-helpdesk-troubleshooting.html">连不上网怎么办？按这七步自查，大多数问题当场解决</a>
-          </h2>
-          <p class="topics-card-excerpt">
+<!-- 吸顶导航栏 -->
+<header class="nexus-nav">
+<div class="nexus-container nexus-nav-wrap">
+<a aria-label="返回首页" class="nexus-logo-link" href="index.html">
+<svg class="nexus-logo-svg" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<circle cx="24" cy="24" r="22" stroke="#6366f1" stroke-dasharray="4 2" stroke-width="2"></circle>
+<path d="M24 6L24 12" stroke="#06b6d4" stroke-linecap="round" stroke-width="2"></path>
+<path d="M24 36L24 42" stroke="#06b6d4" stroke-linecap="round" stroke-width="2"></path>
+<path d="M6 24L12 24" stroke="#06b6d4" stroke-linecap="round" stroke-width="2"></path>
+<path d="M36 24L42 24" stroke="#06b6d4" stroke-linecap="round" stroke-width="2"></path>
+<path d="M16 28C16 23.58 19.58 20 24 20C28.42 20 32 23.58 32 28V32C32 33.1 31.1 34 30 34H18C16.9 34 16 33.1 16 32V28Z" fill="url(#nexus-grad)" fill-opacity="0.3" stroke="#6366f1" stroke-width="2"></path>
+<circle cx="24" cy="18" fill="#06b6d4" r="4"></circle>
+<path d="M24 14V10M20 16L17 14M28 16L31 14" stroke="#eab308" stroke-linecap="round" stroke-width="1.8"></path>
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="nexus-grad" x1="16" x2="32" y1="20" y2="34">
+<stop stop-color="#6366f1"></stop>
+<stop offset="1" stop-color="#06b6d4"></stop>
+</lineargradient>
+</defs>
+</svg>
+<div class="nexus-logo-text">
+<span class="nexus-logo-title">掌中世界</span>
+<span class="nexus-logo-sub">HELP CENTER · 帮助中心</span>
+</div>
+</a>
+<!-- 移动端汉堡切换器 -->
+<input aria-label="切换移动端导航" class="nexus-nav-toggle" id="nexus-nav-toggle" type="checkbox"/>
+<label class="nexus-hamburger-label" for="nexus-nav-toggle">
+<span></span>
+<span></span>
+<span></span>
+</label>
+<!-- 导航列表 -->
+<nav class="nexus-nav-menu">
+<ul class="nexus-nav-list">
+<li class="nexus-nav-item"><a aria-current="page" href="index.html#guides">配置指南</a></li>
+<li class="nexus-nav-item"><a href="index.html#diagnostics">排障诊断</a></li>
+<li class="nexus-nav-item"><a href="index.html#pricing">方案选型</a></li>
+<li class="nexus-nav-item"><a href="index.html#faq">核心问答</a></li>
+<li class="nexus-nav-item"><a href="index.html#feedback">客户口碑</a></li>
+<li class="nexus-nav-item"><a href="support-topics.html">智核知识库</a></li>
+</ul>
+</nav>
+<div class="nexus-nav-actions">
+<a class="btn-nexus btn-nexus-primary" href="https://ww012.twilightaff.com/#/?code=A56DH1Af" rel="nofollow" target="_blank">开通专线</a>
+</div>
+</div>
+</header>
+<main>
+<div class="topics-header">
+<div class="nexus-container">
+<span class="nexus-sec-pill">KNOWLEDGE REPOSITORY</span>
+<h1 class="nexus-sec-title">智核知识库 · 连接排障与设置指南</h1>
+<p class="nexus-sec-desc">把常见问题讲清楚，把设置步骤写明白，遇到状况先在这里查一遍。</p>
+</div>
+</div>
+<div class="nexus-container">
+<div class="topics-grid">
+<!-- 文章 1 -->
+<article class="topics-card">
+<div class="topics-card-meta">
+<span class="topics-card-tag">官方手册</span>
+<span>2026-11-15</span>
+</div>
+<h2 class="topics-card-title">
+<a href="palm-world-helpdesk-troubleshooting.html">掌中世界机场求助指南：怎样把连不上网变成可定位的支持工单</a>
+</h2>
+<p class="topics-card-excerpt">
             按固定顺序自查，每次只改一个条件，比反复重装客户端有效得多。
           </p>
-          <a href="palm-world-helpdesk-troubleshooting.html" class="topics-card-readmore">阅读完整指南 &rarr;</a>
-        </article>
-
-        <!-- 文章 2 -->
-        <article class="topics-card">
-          <div class="topics-card-meta">
-            <span class="topics-card-tag">安全防护</span>
-            <span>2026-11-13</span>
-          </div>
-          <h2 class="topics-card-title">
-            <a href="dns-leak-doh-resolver-configuration.html">DNS 怎么设置更合适：系统 DNS、DoH 与代理端解析的区别</a>
-          </h2>
-          <p class="topics-card-excerpt">
+<a class="topics-card-readmore" href="palm-world-helpdesk-troubleshooting.html">阅读完整指南 →</a>
+</article>
+<!-- 文章 2 -->
+<article class="topics-card">
+<div class="topics-card-meta">
+<span class="topics-card-tag">安全防护</span>
+<span>2026-11-13</span>
+</div>
+<h2 class="topics-card-title">
+<a href="dns-leak-doh-resolver-configuration.html">DNS泄露测试结果怎么读：系统DNS、浏览器DoH与代理解析逐层核对</a>
+</h2>
+<p class="topics-card-excerpt">
             三种 DNS 方式各有用途，日常使用建议优先开启代理端解析。
           </p>
-          <a href="dns-leak-doh-resolver-configuration.html" class="topics-card-readmore">阅读完整指南 &rarr;</a>
-        </article>
-
-        <!-- 文章 3 -->
-        <article class="topics-card">
-          <div class="topics-card-meta">
-            <span class="topics-card-tag">规则设置</span>
-            <span>2026-11-14</span>
-          </div>
-          <h2 class="topics-card-title">
-            <a href="clash-verge-smart-rules-guide.html">开了代理国内网站反而变慢？分流规则不当的三个典型表现</a>
-          </h2>
-          <p class="topics-card-excerpt">
+<a class="topics-card-readmore" href="dns-leak-doh-resolver-configuration.html">阅读完整指南 →</a>
+</article>
+<!-- 文章 3 -->
+<article class="topics-card">
+<div class="topics-card-meta">
+<span class="topics-card-tag">规则设置</span>
+<span>2026-11-14</span>
+</div>
+<h2 class="topics-card-title">
+<a href="clash-verge-smart-rules-guide.html">Clash Verge规则怎么改才生效：匹配顺序、策略组与连接记录核验</a>
+</h2>
+<p class="topics-card-excerpt">
             国内网站变慢通常不是线路问题，而是规则把本该直连的流量送去了代理。
           </p>
-          <a href="clash-verge-smart-rules-guide.html" class="topics-card-readmore">阅读完整指南 &rarr;</a>
-        </article>
-
-        <!-- 文章 4 -->
-        <article class="topics-card">
-          <div class="topics-card-meta">
-            <span class="topics-card-tag">网络原理</span>
-            <span>2026-11-10</span>
-          </div>
-          <h2 class="topics-card-title">
-            <a href="tcp-window-scale-bufferbloat-fix.html">测速很快但网页还是慢？认识缓冲膨胀与它的缓解办法</a>
-          </h2>
-          <p class="topics-card-excerpt">
+<a class="topics-card-readmore" href="clash-verge-smart-rules-guide.html">阅读完整指南 →</a>
+</article>
+<!-- 文章 4 -->
+<article class="topics-card">
+<div class="topics-card-meta">
+<span class="topics-card-tag">网络原理</span>
+<span>2026-11-10</span>
+</div>
+<h2 class="topics-card-title">
+<a href="tcp-window-scale-bufferbloat-fix.html">下载一开网页就慢怎么办：缓冲膨胀测试、SQM整形与TCP窗口区别</a>
+</h2>
+<p class="topics-card-excerpt">
             大流量下延迟急剧升高就是缓冲膨胀的典型信号，限速和智能队列可以改善。
           </p>
-          <a href="tcp-window-scale-bufferbloat-fix.html" class="topics-card-readmore">阅读完整指南 &rarr;</a>
-        </article>
-
-        <!-- 文章 5 -->
-        <article class="topics-card">
-          <div class="topics-card-meta">
-            <span class="topics-card-tag">流媒体</span>
-            <span>2026-11-11</span>
-          </div>
-          <h2 class="topics-card-title">
-            <a href="streaming-unlock-geo-spoofing-audit.html">看流媒体提示地区不可用？换节点之前先检查这四项</a>
-          </h2>
-          <p class="topics-card-excerpt">
+<a class="topics-card-readmore" href="tcp-window-scale-bufferbloat-fix.html">阅读完整指南 →</a>
+</article>
+<!-- 文章 5 -->
+<article class="topics-card">
+<div class="topics-card-meta">
+<span class="topics-card-tag">流媒体</span>
+<span>2026-11-11</span>
+</div>
+<h2 class="topics-card-title">
+<a href="streaming-unlock-geo-spoofing-audit.html">流媒体地区错误怎么核查：错误代码、账户条件与实际出口的检查表</a>
+</h2>
+<p class="topics-card-excerpt">
             账号、时间、DNS、节点，四项逐一核对，比盲目切换节点效率高得多。
           </p>
-          <a href="streaming-unlock-geo-spoofing-audit.html" class="topics-card-readmore">阅读完整指南 &rarr;</a>
-        </article>
-
-        <!-- 文章 6 -->
-        <article class="topics-card">
-          <div class="topics-card-meta">
-            <span class="topics-card-tag">出行场景</span>
-            <span>2026-11-12</span>
-          </div>
-          <h2 class="topics-card-title">
-            <a href="mobile-hotspot-vpn-tethering-setup.html">出差用手机热点上网：电脑使用客户端的设置与省流技巧</a>
-          </h2>
-          <p class="topics-card-excerpt">
+<a class="topics-card-readmore" href="streaming-unlock-geo-spoofing-audit.html">阅读完整指南 →</a>
+</article>
+<!-- 文章 6 -->
+<article class="topics-card">
+<div class="topics-card-meta">
+<span class="topics-card-tag">出行场景</span>
+<span>2026-11-12</span>
+</div>
+<h2 class="topics-card-title">
+<a href="mobile-hotspot-vpn-tethering-setup.html">手机热点共享给电脑怎么省流量：独立客户端、计量连接与恢复演练</a>
+</h2>
+<p class="topics-card-excerpt">
             热点环境流量有限，规则分流和关闭自动更新能明显节省流量。
           </p>
-          <a href="mobile-hotspot-vpn-tethering-setup.html" class="topics-card-readmore">阅读完整指南 &rarr;</a>
-        </article>
-      </div>
-
-      <div class="nexus-cta-card">
-        <h3>未找到您遇到的网络问题？</h3>
-        <p>我们的技术工程师支持团队 7×24 小时在线，支持提交工单协助排查各类复杂网络拓扑与链路优化。</p>
-        <a href="https://ww012.twilightaff.com/#/?code=A56DH1Af" target="_blank" rel="nofollow" class="btn-nexus btn-nexus-primary">联系专业技术支持</a>
-      </div>
-    </div>
-  <div class="interlink-box"><p>选购全私网专线与多地原生住宅IP节点，请参考 <a href="https://dajichang.mom/" target="_blank">官方商城订阅价格一览</a>。</p></div>
+<a class="topics-card-readmore" href="mobile-hotspot-vpn-tethering-setup.html">阅读完整指南 →</a>
+</article>
+</div>
+<div class="nexus-cta-card">
+<h3>未找到您遇到的网络问题？</h3>
+<p>我们的技术工程师支持团队 7×24 小时在线，支持提交工单协助排查各类复杂网络拓扑与链路优化。</p>
+<a class="btn-nexus btn-nexus-primary" href="https://ww012.twilightaff.com/#/?code=A56DH1Af" rel="nofollow" target="_blank">联系专业技术支持</a>
+</div>
+</div>
+<div class="interlink-box"><p>选购全私网专线与多地原生住宅IP节点，请参考 <a href="https://dajichang.mom/" target="_blank">官方商城订阅价格一览</a>。</p></div>
 </main>
-
-  <!-- 底部极简规范页脚：严格只有4个链接 (全中文) -->
-  <footer class="nexus-footer">
-    <div class="nexus-container">
-      <ul class="nexus-footer-nav">
-        <li><a href="sitemap.html">网站地图</a></li>
-        <li><a href="about.html">关于我们</a></li>
-        <li><a href="terms.html">服务条款</a></li>
-        <li><a href="privacy.html">隐私政策</a></li>
-      </ul>
-      <p class="nexus-footer-copy">
-        &copy; 2026 掌中世界-帮助中心 (zjs2026.help). 版权所有 · 专注于全平台客户端配置教程与极速出海网络排障.
+<!-- 底部极简规范页脚：严格只有4个链接 (全中文) -->
+<footer class="nexus-footer">
+<div class="nexus-container">
+<ul class="nexus-footer-nav">
+<li><a href="sitemap.html">网站地图</a></li>
+<li><a href="about.html">关于我们</a></li>
+<li><a href="terms.html">服务条款</a></li>
+<li><a href="privacy.html">隐私政策</a></li>
+</ul>
+<p class="nexus-footer-copy">
+        © 2026 掌中世界-帮助中心 (zjs2026.help). 版权所有 · 专注于全平台客户端配置教程与极速出海网络排障.
       </p>
-    </div>
-  </footer>
-
+</div>
+</footer>
 </body>
 </html>

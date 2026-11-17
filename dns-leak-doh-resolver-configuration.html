@@ -1,27 +1,27 @@
 <!DOCTYPE html>
+
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DNS 怎么设置更合适：系统 DNS、DoH 与代理端解析的区别 - 掌中世界-帮助中心</title>
-  <meta name="description" content="DNS 影响网页速度和访问准确性。说明系统 DNS、加密 DNS（DoH）与代理端解析三种方式的差别、适用场景以及自查是否出现解析泄露的方法。">
-  <link rel="stylesheet" href="style.css">
-  <link rel="canonical" href="https://zjs2026.help/dns-leak-doh-resolver-configuration.html">
-  <meta property="og:type" content="article">
-  <meta property="og:site_name" content="掌中世界-帮助中心">
-  <meta property="og:title" content="DNS 怎么设置更合适：系统 DNS、DoH 与代理端解析的区别 - 掌中世界-帮助中心">
-  <meta property="og:description" content="DNS 影响网页速度和访问准确性。说明系统 DNS、加密 DNS（DoH）与代理端解析三种方式的差别、适用场景以及自查是否出现解析泄露的方法。">
-  <meta property="og:url" content="https://zjs2026.help/dns-leak-doh-resolver-configuration.html">
-  <meta property="og:image" content="https://zjs2026.help/og-preview.png">
-  <meta property="og:locale" content="zh_CN">
-  <script type="application/ld+json">
-  {
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DNS泄露测试结果怎么读：系统DNS、浏览器DoH与代理解析逐层核对</title>
+<meta content="DNS泄露测试结果怎么读：系统DNS、浏览器DoH与代理解析逐层核对，按实际使用流程给出操作步骤、判断方法和恢复检查。" name="description"/>
+<link href="style.css" rel="stylesheet"/>
+<link href="https://zjs2026.help/dns-leak-doh-resolver-configuration.html" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="掌中世界-帮助中心" property="og:site_name"/>
+<meta content="DNS泄露测试结果怎么读：系统DNS、浏览器DoH与代理解析逐层核对" property="og:title"/>
+<meta content="DNS泄露测试结果怎么读：系统DNS、浏览器DoH与代理解析逐层核对，按实际使用流程给出操作步骤、判断方法和恢复检查。" property="og:description"/>
+<meta content="https://zjs2026.help/dns-leak-doh-resolver-configuration.html" property="og:url"/>
+<meta content="https://zjs2026.help/og-preview.png" property="og:image"/>
+<meta content="zh_CN" property="og:locale"/>
+<script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "Article",
-      "headline": "DNS 怎么设置更合适：系统 DNS、DoH 与代理端解析的区别",
-      "description": "DNS 影响网页速度和访问准确性。说明系统 DNS、加密 DNS（DoH）与代理端解析三种方式的差别、适用场景以及自查是否出现解析泄露的方法。",
+      "headline": "DNS泄露测试结果怎么读：系统DNS、浏览器DoH与代理解析逐层核对",
+      "description": "DNS泄露测试结果怎么读：系统DNS、浏览器DoH与代理解析逐层核对，按实际使用流程给出操作步骤、判断方法和恢复检查。",
       "author": {
         "@type": "Organization",
         "name": "掌中世界"
@@ -31,7 +31,8 @@
         "name": "掌中世界-帮助中心"
       },
       "mainEntityOfPage": "https://zjs2026.help/dns-leak-doh-resolver-configuration.html",
-      "inLanguage": "zh-CN"
+      "inLanguage": "zh-CN",
+      "dateModified": "2026-11-16"
     },
     {
       "@type": "BreadcrumbList",
@@ -51,131 +52,90 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "DNS 怎么设置更合适：系统 DNS、DoH 与代理端解析的区别",
+          "name": "DNS泄露测试结果怎么读：系统DNS、浏览器DoH与代理解析逐层核对",
           "item": "https://zjs2026.help/dns-leak-doh-resolver-configuration.html"
         }
       ]
     }
   ]
-}
-  </script>
+}</script>
 </head>
 <body>
-
-  <!-- 吸顶导航栏 -->
-  <header class="nexus-nav">
-    <div class="nexus-container nexus-nav-wrap">
-      <a href="index.html" class="nexus-logo-link" aria-label="返回首页">
-        <svg class="nexus-logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="24" cy="24" r="22" stroke="#6366f1" stroke-width="2" stroke-dasharray="4 2"/>
-          <path d="M24 6L24 12" stroke="#06b6d4" stroke-width="2" stroke-linecap="round"/>
-          <path d="M24 36L24 42" stroke="#06b6d4" stroke-width="2" stroke-linecap="round"/>
-          <path d="M6 24L12 24" stroke="#06b6d4" stroke-width="2" stroke-linecap="round"/>
-          <path d="M36 24L42 24" stroke="#06b6d4" stroke-width="2" stroke-linecap="round"/>
-          <path d="M16 28C16 23.58 19.58 20 24 20C28.42 20 32 23.58 32 28V32C32 33.1 31.1 34 30 34H18C16.9 34 16 33.1 16 32V28Z" fill="url(#nexus-grad)" fill-opacity="0.3" stroke="#6366f1" stroke-width="2"/>
-          <circle cx="24" cy="18" r="4" fill="#06b6d4"/>
-          <path d="M24 14V10M20 16L17 14M28 16L31 14" stroke="#eab308" stroke-width="1.8" stroke-linecap="round"/>
-          <defs>
-            <linearGradient id="nexus-grad" x1="16" y1="20" x2="32" y2="34" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#6366f1"/>
-              <stop offset="1" stop-color="#06b6d4"/>
-            </linearGradient>
-          </defs>
-        </svg>
-        <div class="nexus-logo-text">
-          <span class="nexus-logo-title">掌中世界</span>
-          <span class="nexus-logo-sub">HELP CENTER · 帮助中心</span>
-        </div>
-      </a>
-
-      <!-- 移动端汉堡切换器 -->
-      <input type="checkbox" id="nexus-nav-toggle" class="nexus-nav-toggle" aria-label="切换移动端导航">
-      <label for="nexus-nav-toggle" class="nexus-hamburger-label">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-
-      <!-- 导航列表 -->
-      <nav class="nexus-nav-menu">
-        <ul class="nexus-nav-list">
-          <li class="nexus-nav-item"><a href="index.html#guides" aria-current="page">配置指南</a></li>
-          <li class="nexus-nav-item"><a href="index.html#diagnostics">排障诊断</a></li>
-          <li class="nexus-nav-item"><a href="index.html#pricing">方案选型</a></li>
-          <li class="nexus-nav-item"><a href="index.html#faq">核心问答</a></li>
-          <li class="nexus-nav-item"><a href="index.html#feedback">客户口碑</a></li>
-          <li class="nexus-nav-item"><a href="support-topics.html">智核知识库</a></li>
-        </ul>
-      </nav>
-
-      <div class="nexus-nav-actions">
-        <a href="https://ww012.twilightaff.com/#/?code=A56DH1Af" target="_blank" rel="nofollow" class="btn-nexus btn-nexus-primary">开通专线</a>
+<!-- 吸顶导航栏 -->
+<header class="nexus-nav">
+<div class="nexus-container nexus-nav-wrap">
+<a aria-label="返回首页" class="nexus-logo-link" href="index.html">
+<svg class="nexus-logo-svg" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<circle cx="24" cy="24" r="22" stroke="#6366f1" stroke-dasharray="4 2" stroke-width="2"></circle>
+<path d="M24 6L24 12" stroke="#06b6d4" stroke-linecap="round" stroke-width="2"></path>
+<path d="M24 36L24 42" stroke="#06b6d4" stroke-linecap="round" stroke-width="2"></path>
+<path d="M6 24L12 24" stroke="#06b6d4" stroke-linecap="round" stroke-width="2"></path>
+<path d="M36 24L42 24" stroke="#06b6d4" stroke-linecap="round" stroke-width="2"></path>
+<path d="M16 28C16 23.58 19.58 20 24 20C28.42 20 32 23.58 32 28V32C32 33.1 31.1 34 30 34H18C16.9 34 16 33.1 16 32V28Z" fill="url(#nexus-grad)" fill-opacity="0.3" stroke="#6366f1" stroke-width="2"></path>
+<circle cx="24" cy="18" fill="#06b6d4" r="4"></circle>
+<path d="M24 14V10M20 16L17 14M28 16L31 14" stroke="#eab308" stroke-linecap="round" stroke-width="1.8"></path>
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="nexus-grad" x1="16" x2="32" y1="20" y2="34">
+<stop stop-color="#6366f1"></stop>
+<stop offset="1" stop-color="#06b6d4"></stop>
+</lineargradient>
+</defs>
+</svg>
+<div class="nexus-logo-text">
+<span class="nexus-logo-title">掌中世界</span>
+<span class="nexus-logo-sub">HELP CENTER · 帮助中心</span>
+</div>
+</a>
+<!-- 移动端汉堡切换器 -->
+<input aria-label="切换移动端导航" class="nexus-nav-toggle" id="nexus-nav-toggle" type="checkbox"/>
+<label class="nexus-hamburger-label" for="nexus-nav-toggle">
+<span></span>
+<span></span>
+<span></span>
+</label>
+<!-- 导航列表 -->
+<nav class="nexus-nav-menu">
+<ul class="nexus-nav-list">
+<li class="nexus-nav-item"><a aria-current="page" href="index.html#guides">配置指南</a></li>
+<li class="nexus-nav-item"><a href="index.html#diagnostics">排障诊断</a></li>
+<li class="nexus-nav-item"><a href="index.html#pricing">方案选型</a></li>
+<li class="nexus-nav-item"><a href="index.html#faq">核心问答</a></li>
+<li class="nexus-nav-item"><a href="index.html#feedback">客户口碑</a></li>
+<li class="nexus-nav-item"><a href="support-topics.html">智核知识库</a></li>
+</ul>
+</nav>
+<div class="nexus-nav-actions">
+<a class="btn-nexus btn-nexus-primary" href="https://ww012.twilightaff.com/#/?code=A56DH1Af" rel="nofollow" target="_blank">开通专线</a>
+</div>
+</div>
+</header>
+<main class="article-nexus-container">
+<div class="article-nexus-header">
+<div class="article-nexus-breadcrumb">
+<a href="index.html">首页</a> &gt; <a href="support-topics.html">智核知识库</a> &gt; 正文
       </div>
-    </div>
-  </header>
-
-  <main class="article-nexus-container">
-    <div class="article-nexus-header">
-      <div class="article-nexus-breadcrumb">
-        <a href="index.html">首页</a> &gt; <a href="support-topics.html">智核知识库</a> &gt; 正文
-      </div>
-      <h1 class="article-nexus-headline">DNS 怎么设置更合适：系统 DNS、DoH 与代理端解析的区别</h1>
-      <div class="article-nexus-meta">
-        <span>作者：掌中世界帮助中心</span>
-        <span>发布日期：2026-11-13</span>
-        <span>分类：DNS 设置</span>
-      </div>
-    </div>
-
-    <article class="article-nexus-body">
-<p>DNS 负责把网址翻译成地址。设置不合适时，可能出现网页打开慢、访问错误页面，甚至显示的地区与出口不一致。</p>
-<h2>系统 DNS</h2>
-<p>使用本地网络分配的 DNS，速度快，但可能被运营商干扰，也无法体现代理出口所在地区。</p>
-<h2>加密 DNS（DoH / DoT）</h2>
-<p>通过加密通道查询，防止被中间设备查看或篡改。在浏览器里开启 DoH 即可，但它不代表请求会走代理线路。</p>
-<h2>代理端解析</h2>
-<p>由代理服务器那一端完成域名解析，解析结果与出口地区一致，更适合访问海外网站和需要地区识别的服务。</p>
-<h2>怎样检查是否出现泄露</h2>
-<p>访问常见的 DNS 检测网页，看显示的解析服务商所在地区是否与出口一致。如果显示的是本地运营商，说明解析没有走代理，可以在客户端中打开相关选项。</p>
-<h2>小结</h2>
-<p>日常上网：规则模式加代理端解析，兼顾速度与准确。需要额外保护隐私时，可以在浏览器里再开启 DoH。</p>
-      <div class="nexus-cta-card">
-        <h3>尊享掌中世界纯净出海专线</h3>
-        <p>全系节点部署私有化无日志递归解析中枢，让每一次数据连接都受到现代密码学护航。</p>
-        <a href="https://ww012.twilightaff.com/#/?code=A56DH1Af" target="_blank" rel="nofollow" class="btn-nexus btn-nexus-primary">立刻开通尊享</a>
-      </div>
-          <!-- 相关阅读推荐 -->
-      <section class="related-articles-sec">
-        <h3 class="related-title">相关阅读推荐</h3>
-        <div class="related-grid">
-          <a href="mobile-hotspot-vpn-tethering-setup.html" class="related-card">
-            <span class="related-cat">智核知识库精选</span>
-            <h4 class="related-heading">出差用手机热点上网：电脑使用客户端的设置与省流技巧</h4>
-          </a>
-          <a href="palm-world-helpdesk-troubleshooting.html" class="related-card">
-            <span class="related-cat">智核知识库精选</span>
-            <h4 class="related-heading">连不上网怎么办？按这七步自查，大多数问题当场解决</h4>
-          </a>
-        </div>
-      </section>
-    <p>若需开通高速物理专线或更换不同节点方案，可前往<a href="https://dajichang.mom/" target="_blank">升级高纯净专线套餐</a>了解最新方案详情。</p>
-</article>
-  </main>
-
-  <!-- 底部极简规范页脚：严格只有4个链接 (全中文) -->
-  <footer class="nexus-footer">
-    <div class="nexus-container">
-      <ul class="nexus-footer-nav">
-        <li><a href="sitemap.html">网站地图</a></li>
-        <li><a href="about.html">关于我们</a></li>
-        <li><a href="terms.html">服务条款</a></li>
-        <li><a href="privacy.html">隐私政策</a></li>
-      </ul>
-      <p class="nexus-footer-copy">
-        &copy; 2026 掌中世界-帮助中心 (zjs2026.help). 版权所有 · 专注于全平台客户端配置教程与极速出海网络排障.
+<h1 class="article-nexus-headline">DNS泄露测试结果怎么读：系统DNS、浏览器DoH与代理解析逐层核对</h1>
+<div class="article-nexus-meta">
+<span>作者：掌中世界帮助中心</span>
+<span>发布日期：2026-11-13</span>
+<span>分类：DNS 设置</span>
+</div>
+</div>
+<article class="article-nexus-body"><div data-swc-article-body="2026-11-16"><h2>先定义预期路径，才谈是否偏离</h2><p>DNS把域名查询成连接所需的信息，浏览器、系统和代理工具可能分别参与解析。所谓泄露，需要先说明本来希望查询经过哪里，再确认实际是否偏离。检测页显示另一个国家或运营商名称，不足以独立证明隐私已经泄露。本文先建立路径表，再用受控测试判断设置是否生效，避免看到陌生标签就不断改动整个网络。</p><h2>把三个解析层写在同一张纸上</h2><p>第一栏记录系统网络接口获得的DNS配置，第二栏记录浏览器是否启用安全DNS，第三栏记录代理客户端是否接管解析及采用哪种模式。某个应用可能绕过系统使用自己的解析服务，因此系统设置只是其中一层。先把知道和不知道的部分分开，后续每次测试才有清楚的比较对象，不用猜哪个开关优先。</p><h2>第一步读取系统接口配置</h2><p>在Windows的网络与Internet设置中查看当前连接属性及DNS配置，确认自己看的是正在使用的无线或以太网接口。也可以在获准使用命令行时运行ipconfig /all，找到对应接口的DNS服务器字段。不要把其他断开接口的值混入结论；输出可能包含内部网络资料，分享前只摘取必要字段并遮住无关信息。</p><h2>第二步核对浏览器自己的选择</h2><p>以Firefox为例，进入设置中的隐私与安全，找到DNS over HTTPS部分，再查看当前保护级别、提供方与状态。Mozilla说明，不同级别对故障回退有不同处理，默认设置还可能受网络或管理政策影响。看到开关启用不等于每次查询都必然采用同一服务，需结合实际状态和当前模式理解。</p><h2>加密查询不等于全部流量进入隧道</h2><p>DoH保护的是到选定解析服务之间的查询传输，不会自动让所有网页内容、其他应用或设备流量都走代理。解析服务本身仍处于信任链中。选择提供方时看其说明与适用条件，而不是只追求检测页显示海外地区。网站连接是否受HTTPS保护、应用是否走预期出口，需要另外验证，不能由一个DNS开关代替。</p><h2>第三步查看代理端的解析机制</h2><p>打开客户端当前配置中与DNS和路由有关的部分，记录系统代理、虚拟接口及解析设置的组合。不同实现可能让本地或远端完成不同查询，不能仅凭启用代理就假设解析一定在出口地区。配置中不理解的字段先对照当前版本文档，不从多个教程拼接整段设置，避免出现循环解析或某些内网名称突然失效。</p><h2>用新查询进行前后对照</h2><p>缓存可能让重复打开同一网站不再产生新的解析，第二次更快并不证明新设置生效。选择可信检测工具的当次测试，记录它报告的解析服务、测试时间和使用浏览器。然后只改变一个已理解的设置，再进行新一轮测试。工具显示的是它能观察到的查询结果，并不自动覆盖后台应用、其他浏览器与全部设备。</p><h2>解释地址归属与地点差异</h2><p>递归解析服务可能采用分布式部署，工具显示的网络组织或地理标签也有数据库误差。查询出口与网页访问出口不在同一城市，并不必然说明故障。真正应核对的是结果是否符合你选择的机制，以及目标服务是否正常工作。若无法解释某个陌生地址，先查询提供方说明，而不是直接把它列为恶意服务器。</p><h2>内部网站失效时考虑解析边界</h2><p>单位内网或家庭设备名称可能只在特定解析环境中有效。将所有查询改到公共服务后，这些名称可能无法找到，并不是目标设备消失。恢复原设置做对照，再按管理员提供的分流解析方式处理。不要为让公共测试页给出好看结果而破坏内部访问，更不要把公司内部域名列表粘贴到公开检测网站。</p><h2>让服务选择围绕可解释配置</h2><p>参考<a href="https://dajichang.mom/">DNS配置机场服务比较</a>时，关注客户端说明是否清楚交代解析机制与设备兼容，而不是寻找一个声称任何环境都零泄露的标语。服务比较只能帮助整理候选，不能从外部验证全部内部系统。最终仍需用自己的应用、接入和配置逐层检查，保留未知项与测试限制。</p><h2>出现问题时恢复到上一组已知状态</h2><p>保存原配置后，若修改导致网站全面打不开，先撤回刚改的一项，再验证基础接入与原应用。不要同时改系统DNS、浏览器DoH和客户端模式，否则即使恢复也难以确定原因。记录错误是无法解析、证书警告还是页面返回拒绝，分别交给合适的维护者处理，不把任何访问失败都称为DNS污染。</p><h2>完成验收要覆盖常用任务</h2><p>检查普通网页、桌面应用、需要的内部服务和正常断开代理后的连接，确认它们符合预期。把配置日期与版本保存下来，软件升级后复查受影响部分即可。DNS隐私管理并非追求某张测试截图永远全绿，而是能够说明查询在哪里处理、为什么采用这种方式，以及变化后怎样判断是否偏离自己的要求。</p></div><div class="article-original-promotion"><a class="btn-nexus btn-nexus-primary" href="https://ww012.twilightaff.com/#/?code=A56DH1Af" rel="nofollow" target="_blank">立刻开通尊享</a></div></article>
+</main>
+<!-- 底部极简规范页脚：严格只有4个链接 (全中文) -->
+<footer class="nexus-footer">
+<div class="nexus-container">
+<ul class="nexus-footer-nav">
+<li><a href="sitemap.html">网站地图</a></li>
+<li><a href="about.html">关于我们</a></li>
+<li><a href="terms.html">服务条款</a></li>
+<li><a href="privacy.html">隐私政策</a></li>
+</ul>
+<p class="nexus-footer-copy">
+        © 2026 掌中世界-帮助中心 (zjs2026.help). 版权所有 · 专注于全平台客户端配置教程与极速出海网络排障.
       </p>
-    </div>
-  </footer>
-
+</div>
+</footer>
 </body>
 </html>
